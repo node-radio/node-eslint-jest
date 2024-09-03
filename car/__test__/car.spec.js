@@ -19,10 +19,27 @@ describe('Car class', () => {
     prius = new Car('prius', 'toyota')
   });
 
-  it.todo('[3] exists');
-  it.todo('[4] has a model prop prius');
-  it.todo('[5] has a make prop totota');
-  it.todo('[6] has an odometer at 0 miles');
-  it.todo('[7] has a drive method that takes distance and inc odometer');
+  it('[3] exists', () => {
+    expect(Car).toBeDefined()
+  });
+  it('[4] has a model prop prius', () => {
+    expect(prius).toHaveProperty('model', 'prius')
+  });
+  it('[5] has a make prop totota', () => {
+    expect(prius.make).toBe('toyota')
+  });
+  it('[6] has an odometer at 0 miles', () => {
+    // empty test is a false positive
+    expect(prius.odometer).toBe(0)
+  });
+  it('[7] has a drive method that takes distance and inc odometer', () => {
+    expect(prius.drive).toBeDefined()
+    expect(prius.drive).toBe(Car.prototype.drive)
+
+    prius.drive(30)
+    expect(prius.odometer).toBe(30)
+    prius.drive(50)
+    expect(prius.odometer).toBe(80)
+  });
   it.todo('[8] more todo list');
 })
