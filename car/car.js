@@ -3,4 +3,12 @@
 function sum(a, b) {
     return a + b;
   }
-module.exports = sum;
+
+  class Car {
+
+  }
+  
+  module.exports = {
+    sum,
+    Car
+  };
